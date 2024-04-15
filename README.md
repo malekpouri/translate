@@ -1,61 +1,47 @@
-## README for Groovy Subtitle Translation Program
+## README for Subtitle Translation Script
 
-**Project Name:** Groovy Subtitle Translator
+**Project:** Groovy Subtitle Translator
 
 **Description:**
 
-This program is a tool for translating subtitles from one language to another using the Groovy programming language. It supports various subtitle formats, including VTT, SRT, and ASS, and can integrate with translation APIs or services to provide accurate and efficient translations.
+This script is a tool for translating subtitles from one language to another using the Groovy programming language. It utilizes the Webtran.eu translation service to provide accurate translations for various subtitle formats, including SRT, VTT, and ASS.
 
 **Features:**
 
 * Translates subtitles from one language to another
-* Supports various subtitle formats (VTT, SRT, ASS)
-* Integrates with translation APIs or services
-* Command-line interface for easy usage
-* Customizable translation settings
+* Supports multiple subtitle formats (SRT, VTT, ASS)
+* Utilizes Webtran.eu for efficient translation
+* Handles multiple subtitle files in a directory
+* Customizable language settings
 
 **Installation:**
 
-1. Clone the repository:
-
-```bash
-git clone https://github.com/malekpouri/translate.git
-```
-
-2. Install dependencies:
-
-```bash
-cd translate
-gradle install
-```
+1. Install Groovy: [https://groovy-lang.org/](https://groovy-lang.org/)
+2. Save the script as `Main.groovy`
 
 **Usage:**
 
-1. Run the program with the following command:
-
 ```bash
-gradle run -PsourceLang=SOURCE_LANGUAGE -PtgtLang=TARGET_LANGUAGE -PsubtitleFile=PATH_TO_SUBTITLE_FILE
+groovy Main.groovy /path/to/subtitles/directory [firstLanguage] [secondLanguage]
 ```
 
-Replace `SOURCE_LANGUAGE`, `TARGET_LANGUAGE`, and `PATH_TO_SUBTITLE_FILE` with the appropriate values.
-
-2. The translated subtitles will be saved to the specified output file.
+Replace `/path/to/subtitles/directory` with the path to the directory containing the subtitle files.
 
 **Example:**
 
 ```bash
-gradle run -PsourceLang=en -PtgtLang=fa -PsubtitleFile=input.srt
+groovy Main.groovy /home/user/subtitles en fa
 ```
 
-This command will translate the subtitles in `input.srt` from English to Farsi and save the translated subtitles to `output.srt`.
+This will translate all subtitle files in `/home/user/subtitles` from English to Farsi and save the translated files in the same directory.
 
 **Customization:**
 
-The program can be customized by modifying the `config.properties` file. This file allows you to specify the translation API key, output file format, and other settings.
+The script can be customized by modifying the `System.getProperties()` section to specify proxy settings if necessary.
 
 **Contributing:**
 
-We welcome contributions to this project. Please feel free to fork the repository, make changes, and submit pull requests.
+We welcome contributions to this project. Feel free to fork the repository, make changes, and submit pull requests.
 
 **License:**
 
@@ -63,4 +49,13 @@ This project is licensed under the MIT License.
 
 **Contact:**
 
-If you have any questions or suggestions, please feel free to contact us at m.malekpoor@gmail.com.
+If you have any questions or suggestions, please feel free to contact us at [m.malekpoor@gmail.com](m.malekpoor@gmail.com).
+
+**Additional Notes:**
+
+* The script utilizes Webtran.eu for translation. You may need to create a free account and obtain an API key if you plan to translate a large number of files.
+* The script handles multiple subtitle files in a directory. You can specify a single file or an entire directory.
+* The script supports language customization. You can specify the source and target languages as command-line arguments. If no languages are specified, English and Farsi are used as defaults.
+* The script saves translated files in the same directory as the original files, with a "_translate" suffix appended to the filename.
+
+This script provides a convenient tool for translating subtitle files using Groovy and Webtran.eu. Feel free to modify and adapt it to your specific needs and contribute to its improvement.
